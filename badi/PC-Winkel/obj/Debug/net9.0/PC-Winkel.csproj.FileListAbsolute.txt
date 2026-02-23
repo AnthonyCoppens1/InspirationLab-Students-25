@@ -1,0 +1,15 @@
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\bin\Debug\net9.0\PC-Winkel.exe
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\bin\Debug\net9.0\PC-Winkel.deps.json
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\bin\Debug\net9.0\PC-Winkel.runtimeconfig.json
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\bin\Debug\net9.0\PC-Winkel.dll
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\bin\Debug\net9.0\PC-Winkel.pdb
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\obj\Debug\net9.0\PC-Winkel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\obj\Debug\net9.0\PC-Winkel.AssemblyInfoInputs.cache
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\obj\Debug\net9.0\PC-Winkel.AssemblyInfo.cs
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\obj\Debug\net9.0\PC-Winkel.csproj.CoreCompileInputs.cache
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\obj\Debug\net9.0\PC-Winkel.sourcelink.json
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\obj\Debug\net9.0\PC-Winkel.dll
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\obj\Debug\net9.0\refint\PC-Winkel.dll
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\obj\Debug\net9.0\PC-Winkel.pdb
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\obj\Debug\net9.0\PC-Winkel.genruntimeconfig.cache
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\badi\PC-Winkel\obj\Debug\net9.0\ref\PC-Winkel.dll
