@@ -25,6 +25,54 @@ namespace Spotify
                 Duration += item.Duration;
             }
         }
+
+        public void AddSong(Song song)
+        {
+            Songs.Add(song);
+            Duration += song.Duration;
+        }
+
+        public void RemoveSong(Song song)
+        {
+            Songs.Remove(song);
+            Duration -= song.Duration;
+        }
+
+        public void Play()
+        {
+            foreach (var song in Songs)
+            {
+                song.Play();
+            }
+        }
+
+        public override string ToString()
+        {
+            string s = $"{Name} - Length: {Duration}\n";
+            foreach (Song song in Songs)
+            {
+                s += $"- {song}\n";
+            }
+            return s;
+        }
+
+        public void Shuffle()
+        {
+            Random rd = new Random();
+            for (int i = Songs.Count-1; i >= 0; i--)
+            {
+                int nr = rd.Next(0, i+1);
+                Song temp = Songs[nr];
+                Songs[nr] = Songs[i]; //count - 1 aka current last position
+                Songs[i] = temp;
+            }
+        }
+
+        public void Sort()
+        {
+            Songs.Sort();
+        }
+
     }
 
 
@@ -85,7 +133,7 @@ namespace Spotify
 
     }
 
-    public class Song
+    public class Song : IComparable
     {
         public string Title { get; set; }
         public int Duration { get; set; }
@@ -126,6 +174,31 @@ namespace Spotify
         public void Liked()
         {
             IsLiked = true;
+        }
+
+        public int CompareTo(object? obj)
+        {
+            
+            return this.Title.CompareTo(((Song)obj).Title);
+            
+            /* inner working of the CompareTo
+            if (this.Title < song.Title){
+                return -1;
+            }
+            else if (this.Title == song.Title){
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }*/
+
+            /*if (obj is Song)
+            {
+                Song otherSong = (Song)obj;
+                return this.Title.CompareTo(otherSong.Title);
+            }
+            return 0;*/
         }
 
     }

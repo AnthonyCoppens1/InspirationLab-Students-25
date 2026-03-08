@@ -1,7 +1,82 @@
 using System;
+using System.Runtime.InteropServices;
 
 namespace Spotify
-{
+{   
+    public class Playlist
+    {
+        public string Name { get; set; }
+        public List<Song> Songs { get; set; }
+        public int Duration { get; set; }
+
+        public Playlist(string name) //the we go to a roadtrip to south France with my new partner playlist
+        {
+            Name = name;
+            Duration = 0;
+            Songs = new List<Song>();
+        }
+
+        public Playlist(string name, List<Song> songs)
+        {
+            Name = name;
+            Songs = songs;
+            Duration = 0;
+            foreach (var song in songs)
+            {
+                Duration += song.Duration;
+            }
+        }
+
+        public void Play()
+        {
+            foreach (var song in Songs)
+            {
+                song.Play();
+            }
+        }
+
+        public void AddSong(Song song)
+        {
+            Songs.Add(song);
+            Duration += song.Duration;
+        }
+        public void RemoveSong(Song song)
+        {
+            Songs.Remove(song);
+            Duration -= song.Duration;
+        }
+
+        public override string ToString()
+        {
+            string s = $"{Name} - Length: {Duration}\n";
+            foreach (var song in Songs)
+            {
+                s += $"- {song}\n";
+            }
+
+            return s;
+        }
+
+        public void Shuffle()
+        {
+            Random r = new Random();
+            for (int i = Songs.Count-1; i >= 0; i--)
+            {
+                int nr = r.Next(0, i+1);
+                Song temp = Songs[nr];
+                Songs[nr] = Songs[i];
+                Songs[i] = temp;
+            }
+        }
+
+        public void Sort()
+        {
+            Songs.Sort();// --> crashes --> too difficult to Sort complex objects
+        }
+
+    }
+
+
     public class Album
     {
         public string Name { get; set; }
@@ -62,7 +137,7 @@ namespace Spotify
         DeathMetal, Altrock, DroneRock, Underground, Ambience
     }
 
-    public class Song
+    public class Song: IComparable
     {
         public string Name { get; set; }
         public Artist Owner { get; set; }
@@ -93,7 +168,7 @@ namespace Spotify
                 Console.Write(".");
                 Thread.Sleep(1000);
             }
-            Console.WriteLine($"\nFinished playing: {Name}\n\n");
+            Console.WriteLine($"\nFinished playing: {Name}\n");
         }
 
         public override string ToString()
@@ -109,6 +184,30 @@ namespace Spotify
         public void RemoveLike()
         {
             Like = false;
+        }
+
+        public int CompareTo(object? obj)
+        {
+            if (obj is Song)
+            {
+                Song othersong = (Song) obj;
+                return this.Name.CompareTo(othersong.Name);
+            }
+            return 0;
+
+            /*underneath here, I will show the working
+            if (this.Name > song.Name){
+                return -1;
+            }
+            else if (this.Name == song.Name)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }*/
+
         }
     }
 }

@@ -1,0 +1,15 @@
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\bin\Debug\net10.0\TEST.exe
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\bin\Debug\net10.0\TEST.deps.json
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\bin\Debug\net10.0\TEST.runtimeconfig.json
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\bin\Debug\net10.0\TEST.dll
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\bin\Debug\net10.0\TEST.pdb
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\obj\Debug\net10.0\TEST.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\obj\Debug\net10.0\TEST.AssemblyInfoInputs.cache
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\obj\Debug\net10.0\TEST.AssemblyInfo.cs
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\obj\Debug\net10.0\TEST.csproj.CoreCompileInputs.cache
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\obj\Debug\net10.0\TEST.sourcelink.json
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\obj\Debug\net10.0\TEST.dll
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\obj\Debug\net10.0\refint\TEST.dll
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\obj\Debug\net10.0\TEST.pdb
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\obj\Debug\net10.0\TEST.genruntimeconfig.cache
+C:\Users\antho\OneDrive\Documenten\Anthony-TM\InspirationAndProjectLab\InspirationLab-Students-25\dspsb\TEST\obj\Debug\net10.0\ref\TEST.dll

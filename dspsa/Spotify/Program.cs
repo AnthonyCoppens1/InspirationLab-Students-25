@@ -12,6 +12,8 @@ namespace Spotify
             Artist Rihanna = new Artist("Rihanna");
 
             Song Stargazing = new Song("Stargazing", 3000, MylesSmith, Genre.FolkPop, 2024);
+            Song NiceToMeetYou = new Song("Nice to meet you", 4000, MylesSmith, Genre.FolkPop, 2024);
+            Song MyHome = new Song("My Home", 2000, MylesSmith, Genre.FolkPop, 2024);
             Song DtMF = new Song("DtMF", 5000, BadBunny, Genre.Latin, 2025);
             Song Dakiti = new Song("Dakiti", 2000, BadBunny, Genre.Latin, 2020);
             Song BornToTouchYourFeelings = new Song("Born to touch your feeling", 4000, Scorpios, Genre.Rock, 1975);
@@ -22,14 +24,15 @@ namespace Spotify
             Song ManDown = new Song("Man down", 2000, Rihanna, Genre.HipHip, 2011);
 
             List<Song> songs = new List<Song>();
-            songs.Add(Stargazing);songs.Add(DtMF);songs.Add(Dakiti);songs.Add(BornToTouchYourFeelings);
+            songs.Add(Stargazing);songs.Add(NiceToMeetYou);songs.Add(MyHome);songs.Add(DtMF);
+            songs.Add(Dakiti);songs.Add(BornToTouchYourFeelings);
             songs.Add(StillLovingYou);songs.Add(Umbrella);songs.Add(Diamonds);songs.Add(Rehab);
             songs.Add(ManDown);
 
-            foreach (var item in songs)
+            /*foreach (var item in songs)
             {
                 item.Play();
-            }
+            }*/
 
             Album YonisFavourteSongs = new Album("Yonis favourite Rihanna songs");
             YonisFavourteSongs.AddSong(Umbrella);YonisFavourteSongs.AddSong(Diamonds);
@@ -40,8 +43,15 @@ namespace Spotify
             Album Stargazer = new Album("Stargazer");
             Stargazer.AddSong(Stargazing);
             MylesSmith.AddAlbum(Stargazer);
-            
 
+            Console.WriteLine();
+            Playlist JosephsFavouriteTunes = new Playlist("Joseph's favourite Tunes", songs);
+
+            JosephsFavouriteTunes.Sort();
+            Console.WriteLine(JosephsFavouriteTunes);
+            
+            //JosephsFavouriteTunes.Shuffle();
+            //JosephsFavouriteTunes.Play();
 
         }
     }

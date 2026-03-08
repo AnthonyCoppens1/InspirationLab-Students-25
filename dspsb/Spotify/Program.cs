@@ -33,6 +33,25 @@ namespace Spotify
             Slovakia.AddSong(Bez);
 
             Console.WriteLine(Slovakia);
+
+            List<Song> songs = new List<Song>();
+            songs.Add(Bones);songs.Add(Enemy);songs.Add(Believer);songs.Add(Thunder);songs.Add(Beat);
+            songs.Add(EmptyWords);songs.Add(WithoutStopping);songs.Add(VeganJunkies);songs.Add(EastSentinel);
+            songs.Add(Bez);songs.Add(Sonne);
+
+            /*foreach (var song in songs)
+            {
+                song.Play();
+            }*/
+
+            Playlist shoe = new Playlist("Shoe", songs);
+
+            shoe.Sort();
+            Console.WriteLine(shoe);
+            //shoe.Shuffle();
+
+            shoe.Play();
+
         }
     }
 }
