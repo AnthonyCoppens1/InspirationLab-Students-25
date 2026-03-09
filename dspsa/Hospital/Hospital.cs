@@ -1,68 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace Hospital
 {
     public class Hospital
     {
-        public string Name { get; set; }
-        public List<Person> People { get; private set; }
+        private Data data = new Data();
+        public int ID { get; set; }
+        public string Name {get; set;}
+        public string Location {get; set;}
 
-        public Hospital(string name)
+        public Hospital(string name, string location)
         {
             Name = name;
-            People = new List<Person>();
+            Location = location;
+            ID = data.InsertHospital(this);
         }
 
-        public Hospital(string name, List<Person> people)
+        public Hospital(string name, string location, List<Person> people)
         {
             Name = name;
-            People = people;
+            Location = location;
+            ID = data.InsertHospital(this, people);
         }
 
         public void AddPerson(Person person)
         {
-            People.Add(person);
+            data.AddPeopleToHospital(person.ID, this.ID);
         }
 
-        public List<Patient> GetPatients()
-        {
-            List<Patient> patients = new List<Patient>();
-            foreach (Person person in People)
-            {
-                if (person is Patient)
-                {
-                    patients.Add((Patient)person);
-                }
-            }//every individual inside of the original list
-            return patients;
-        }
-
-
-        public List<Person> GetStaff()
-        {
-            List<Person> staff = new List<Person>();
-            foreach (Person person in People)
-            {
-                if (person is Doctor || person is Nurse)
-                {
-                    staff.Add(person);
-                }
-            }
-            return staff;
-        }
-
+        
         public override string ToString()
         {
-            string s = "HOSPITAL " + Name + "\n";
-            foreach (Person person in People)
-            {
-                s += " - " + person + "\n";
-            }
+            string s = $"HOSPITAL: {Name}\n";
             return s;
         }
+
     }
 }

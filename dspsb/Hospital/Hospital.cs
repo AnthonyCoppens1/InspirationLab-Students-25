@@ -4,29 +4,31 @@ namespace Hospital
 {
     public class Hospital
     {
+        private Data data = new Data();
+        public int ID { get; set; }
         public string Name {get; set;}
         public string Location {get; set;}
-        private List<Person> People {get; set;}
 
         public Hospital(string name, string location)
         {
             Name = name;
             Location = location;
+            ID = data.InsertHospital(this);
         }
 
         public Hospital(string name, string location, List<Person> people)
         {
             Name = name;
             Location = location;
-            People = people;
+            ID = data.InsertHospital(this, people);
         }
 
         public void AddPerson(Person person)
         {
-            People.Add(person);
+            data.AddPeopleToHospital(person.ID, this.ID);
         }
 
-        public List<Patient> GetPatients()
+        /*public List<Patient> GetPatients()
         {
             List<Patient> patients = new List<Patient>();
             foreach (var person in People)
@@ -51,15 +53,15 @@ namespace Hospital
                 }
             }
             return personel;
-        }
+        }*/
 
         public override string ToString()
         {
-            string s = $"HOSPITAL: {Name}\n";
-            foreach(Person person in People)
+            string s = $"HOSPITAL {ID}: {Name}\n";
+            /*foreach(Person person in People)
             {
                 s += $"*{person}\n";
-            }
+            }*/
             return s;
         }
 
