@@ -28,10 +28,27 @@ namespace Hospital
             data.AddPeopleToHospital(person.ID, this.ID);
         }
 
-        
+        public List<Patient> GetPatients()
+        {
+            return data.SelectPatients(this.ID);
+        }
+
+        public List<Person> GetStaff()
+        {
+            return data.SelectStaff(this.ID);
+        }
+
         public override string ToString()
         {
             string s = $"HOSPITAL: {Name}\n";
+            foreach (var person in GetPatients())
+            {
+                s += $"- {person}\n";
+            }
+            foreach (var person in GetStaff())
+            {
+                s += $"- {person}\n";
+            }
             return s;
         }
 

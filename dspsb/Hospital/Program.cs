@@ -17,22 +17,10 @@ namespace Hospital
             //BE CAREFULL WITH SPELLING MISTAKES OR DIFFERENT CAPITALIZATION, CAUSES DIFFERENT ROLES
 
             List<Person> people = new List<Person>() { Anthony, Harkirat, John, Joseph, Milton, Alvaro, Namariq, Frieda };
-            foreach (var person in people)
-            {
-                Console.WriteLine(person);
-            }
-
-
-            Console.WriteLine(Milton.Gender);
 
             John.Name = "Johanna";
             John.Gender = 'X';
 
-            Console.WriteLine(Alvaro);
-
-
-
-            Console.WriteLine($"--------------------------------------------------\n");
             Patient Usman = new Patient("Usman", new DateOnly(2000, 04, 14), 'X', "Cardiovascular artery disease", "Surgery, and a lot of it!");
             Hospital SintMaarten = new Hospital("Sint Maarten", "Mechelen", people);
 

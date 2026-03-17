@@ -28,40 +28,27 @@ namespace Hospital
             data.AddPeopleToHospital(person.ID, this.ID);
         }
 
-        /*public List<Patient> GetPatients()
+        public List<Patient> GetPatients()
         {
-            List<Patient> patients = new List<Patient>();
-            foreach (var person in People)
-            {
-                if (person is Patient)
-                {
-                    patients.Add((Patient)person);
-                }
-            }
-
-            return patients;
+            return data.SelectPatients(this.ID);
         }
 
         public List<Person> GetPersonel()
         {
-            List<Person> personel = new List<Person>();
-            foreach(var person in People)
-            {
-                if (person is Doctor || person is Nurse)
-                {
-                    personel.Add(person);
-                }
-            }
-            return personel;
-        }*/
+            return data.SelectStaff(this.ID);
+        }
 
         public override string ToString()
         {
             string s = $"HOSPITAL {ID}: {Name}\n";
-            /*foreach(Person person in People)
+            foreach (var patient in GetPatients())
             {
-                s += $"*{person}\n";
-            }*/
+                s += $"- {patient}\n";
+            }
+            foreach (var staff in GetPersonel())
+            {
+                s += $"- {staff}\n";
+            }
             return s;
         }
 

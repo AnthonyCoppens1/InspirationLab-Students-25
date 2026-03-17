@@ -87,5 +87,77 @@ namespace Hospital
             }
             return id;
         }
+
+        public List<Patient> SelectPatients(int hospitalID)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            string query = $"SELECT * FROM person " +
+                $"INNER JOIN peopleinhospital on person.ID = peopleinhospital.Person " +
+                $"WHERE Type = {_patient} AND hospital = {hospitalID};";
+
+            MySqlCommand commandDatabase = new MySqlCommand(query, connection);
+            List<Patient> patients = new List<Patient>();
+
+            try
+            {
+                connection.Open();
+                MySqlDataReader reader = commandDatabase.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = (int)reader["ID"];
+                    string name = (string)reader["Name"];
+                    DateOnly birth = DateOnly.FromDateTime((DateTime)reader["Birth"]); //MAYBE CHANGE IF FAILING
+                    string problem = (string)reader["Problem"];
+                    string solution = (string)reader["Treatment"];
+                    patients.Add(new Patient(id, name, birth, problem, solution));
+                }
+                connection.Close();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Problem: {ex.Message}");
+            }
+            return patients;
+        }
+
+
+        public List<Person> SelectStaff(int hospitalID)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            string query = $"SELECT * FROM person " +
+                $"INNER JOIN peopleinhospital on person.ID = peopleinhospital.Person " +
+                $"WHERE Type != {_patient} AND hospital = {hospitalID};";
+
+            MySqlCommand commandDatabase = new MySqlCommand(query, connection);
+            List<Person> staff = new List<Person>();
+
+            try
+            {
+                connection.Open();
+                MySqlDataReader reader = commandDatabase.ExecuteReader();
+                while (reader.Read())
+                {
+                    if ((int)reader["Type"] == _doctor)
+                    {
+                        Spec specialty;
+                        Enum.TryParse((string)reader["Specialty"], out specialty);
+                        staff.Add(new Doctor((int)reader["ID"], (string)reader["Name"], DateOnly.FromDateTime((DateTime)reader["Birth"]), specialty));
+                    }
+                    else
+                    {
+                        Dep department;
+                        Enum.TryParse((string)reader["Area"], out department);
+                        staff.Add(new Nurse((int)reader["ID"], (string)reader["Name"], DateOnly.FromDateTime((DateTime)reader["Birth"]), department));
+                    }
+                }
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Problem with code: {ex.Message}");
+            }
+            return staff;
+        }
     }
 }

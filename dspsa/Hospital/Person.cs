@@ -33,6 +33,13 @@ namespace Hospital
             Gender = gender;
         }
 
+        public Person(int id, string name, DateOnly birthday)
+        {
+            ID = id;
+            Name = name;
+            Birthday = birthday;
+        }
+
         private int CalculateAge()
         {
             DateTime now = DateTime.Now;
@@ -78,6 +85,10 @@ namespace Hospital
         {
             Specialty = specialty;
         }
+        public Doctor(int id, string name, DateOnly birthday, Spec specialty) : base(id, name, birthday)
+        {
+            Specialty = specialty;
+        }
         public override string ToString()
         {
             return $"{Name} - {ID} -  is specialised in {Specialty}";
@@ -108,6 +119,10 @@ namespace Hospital
         {
             Department = department;
         }
+        public Nurse(int id, string name, DateOnly birthday, Dep department) : base(id, name, birthday)
+        {
+            Department = department;
+        }
         public override string ToString()
         {
             return $"{Name} - {ID} -  is currently located in {Department}";
@@ -131,24 +146,14 @@ namespace Hospital
             Problem = problem;
             Solution = solution;
         }
+        public Patient(int id, string name, DateOnly birthday, string problem, string solution) : base(id, name, birthday)
+        {
+            Problem = problem;
+            Solution = solution;
+        }
         public override string ToString()
         {
-            if (Gender == 'M')
-            {
-                return $"Patient {ID} -  {Name} - Age: {Age} has the following problem: {Problem} and suggested to him is: {Solution}";
-            }
-            else if (Gender == 'F')
-            {
-                return $"Patient {ID} - {Name} - Age: {Age} has the following problem: {Problem} and suggested to her is: {Solution}";
-            }
-            else if (Gender == 'X')
-            {
-                return $"Patient {ID} - {Name} - Age: {Age} has the following problem: {Problem} and suggested to them is: {Solution}";
-            }
-            else
-            {
-                return $"Unknown entitiy";
-            }
+            return $"Patient {ID} -  {Name} - Age: {Age} has the following problem: {Problem} and suggested to him is: {Solution}";
         }
     }
 

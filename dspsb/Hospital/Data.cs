@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using MySqlConnector;
@@ -82,6 +83,76 @@ namespace Hospital
                 AddPeopleToHospital(person.ID, id);
             }
             return id;
+        }
+
+        public List<Patient> SelectPatients(int hospitalID)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            string query = $"SELECT * FROM person " +
+                $"INNER JOIN peopleinhospital on person.ID = peopleinhospital.Person " +
+                $"WHERE Type = {_patient} AND Hospital = {hospitalID};";
+
+            MySqlCommand commandDataBase = new MySqlCommand(query, connection);
+            List<Patient>patients = new List<Patient>();
+
+            try
+            {
+                connection.Open();
+                MySqlDataReader reader = commandDataBase.ExecuteReader();
+                while (reader.Read())
+                {
+                    int id = (int)reader["ID"];
+                    string name = (string)reader["Name"];
+                    DateOnly birth = DateOnly.FromDateTime((DateTime)reader["Birth"]);
+                    string problem = (string)reader["Problem"];
+                    string treatment = (string)reader["Treatment"];
+                    patients.Add(new Patient(id, name, birth, problem, treatment));
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Problem: {ex.Message}");
+            }
+            return patients;
+        }
+
+        public List<Person> SelectStaff(int hospitalID)
+        {
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            string query = $"SELECT * FROM person " +
+                $"INNER JOIN peopleinhospital on person.ID = peopleinhospital.Person " +
+                $"WHERE Type != {_patient} AND Hospital = {hospitalID};";
+
+            MySqlCommand commandDataBase = new MySqlCommand(query, connection);
+            List<Person> staff = new List<Person>();
+
+            try
+            {
+                connection.Open();
+                MySqlDataReader reader = commandDataBase.ExecuteReader();
+                while (reader.Read())
+                {
+                    if ((int)reader["Type"] == _doctor)
+                    {
+                        Spec special;
+                        Enum.TryParse((string)reader["Specialty"], out special);
+                        staff.Add(new Doctor((int)reader["ID"], (string)reader["Name"], DateOnly.FromDateTime((DateTime)reader["Birth"]), special));
+                    }
+                    else
+                    {
+                        Dep area;
+                        Enum.TryParse((string)reader["Area"], out area);
+                        staff.Add(new Nurse((int)reader["ID"], (string)reader["Name"], DateOnly.FromDateTime((DateTime)reader["Birth"]), area));
+                    }
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Problem somewhere else: {ex.Message}");
+            }
+            return staff;
         }
 
 

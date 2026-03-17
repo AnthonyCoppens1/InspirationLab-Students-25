@@ -16,21 +16,8 @@ namespace Hospital
             Patient Frieda = new Patient("Frieda Kroket", new DateOnly(1990, 08, 20), 'F', "Addicted to krokets", "Weight loss camp");
             //BE CAREFULL WITH SPELLING MISTAKES OR DIFFERENT CAPITALIZATION, CAUSES DIFFERENT ROLES
 
-            Console.WriteLine(Alvaro);
-            Console.WriteLine(Namariq);
-            Console.WriteLine(Frieda);
-            Console.WriteLine(Anthony);
-            Console.WriteLine(Harkirat);
-            Console.WriteLine(Joseph);
-            Console.WriteLine(Milton);
-
             List<Person> people = new List<Person>(){Anthony, Harkirat, John, Joseph, Milton, Alvaro, Namariq, Frieda};
-            foreach (var person in people)
-            {
-                Console.WriteLine(person);
-            }
 
-            Console.WriteLine($"--------------------------------------------------\n");
             Patient Usman = new Patient("Usman", new DateOnly(2000, 04, 14), 'X', "Cardiovascular artery disease", "Surgery, and a lot of it!");
             Hospital SintMaarten = new Hospital("Sint Maarten", "Mechelen", people);
 

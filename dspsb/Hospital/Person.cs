@@ -24,11 +24,10 @@ namespace Hospital
             Gender = gender;
         }
 
-        public Person(int id, string name, DateOnly birthday, char gender)
+        public Person(int id, string name, DateOnly birthday)
         {
             Name = name;
             Birthday = birthday;
-            Gender = gender;
             ID = id;
         }
 
@@ -74,7 +73,7 @@ namespace Hospital
             ID = data.InsertDoctor(this);
         }
 
-        public Doctor(int id, string name, DateOnly birthday, char gender, Spec specialty) : base(id, name, birthday, gender)
+        public Doctor(int id, string name, DateOnly birthday, Spec specialty) : base(id, name, birthday)
         {
             Specialty = specialty;
         }
@@ -105,7 +104,7 @@ namespace Hospital
             Department = department;
             ID = data.InsertNurse(this);
         }
-        public Nurse(int id, string name, DateOnly birthday, char gender, Dep department) : base(id, name, birthday, gender)
+        public Nurse(int id, string name, DateOnly birthday, Dep department) : base(id, name, birthday)
         {
             Department = department;
         }
@@ -128,7 +127,7 @@ namespace Hospital
             ID = data.InsertPatient(this);
         }
 
-        public Patient(int id, string name, DateOnly birthday, char gender, string problem, string solution) : base(id, name, birthday, gender)
+        public Patient(int id, string name, DateOnly birthday, string problem, string solution) : base(id, name, birthday)
         {
             Problem = problem;
             Solution = solution;
@@ -136,22 +135,7 @@ namespace Hospital
 
         public override string ToString()
         {
-            if (Gender == 'M')
-            {
-                return $"Patient id: {ID} {Name} - Age: {Age} has the following problem: {Problem} and suggested to him is: {Solution}";
-            }
-            else if (Gender == 'F')
-            {
-                return $"Patient id: {ID}  {Name} - Age: {Age} has the following problem: {Problem} and suggested to her is: {Solution}";
-            }
-            else if (Gender == 'X')
-            {
-                return $"Patient id: {ID}  {Name} - Age: {Age} has the following problem: {Problem} and suggested to them is: {Solution}";
-            }
-            else
-            {
-                return $"Unknown entitiy";
-            }
+            return $"Patient id: {ID} {Name} - Age: {Age} has the following problem: {Problem} and suggested to him is: {Solution}";
         }
     }
 
